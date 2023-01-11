@@ -7,7 +7,7 @@ import speech_recognition as sr
 
 
 logfile = str(datetime.date.today()) + '.log'
-token = 'ADD HERE YOUR TOKEN'
+token = 'ADD_____HERE_____YOUR_____TOKEN'
 bot = telebot.TeleBot(token)
 
 
@@ -45,15 +45,12 @@ def get_audio_messages(message):
     except sr.UnknownValueError as e:
         bot.send_message(message.from_user.id,
                          "Sorry i don't understand your record...")
-        with open(logfile, 'a', encoding='utf-8') as f:
-            f.write(str(datetime.datetime.today().strftime("%H:%M:%S")) + ':' + str(message.from_user.id) + ':' + str(message.from_user.first_name) + '_' +
-                    str(message.from_user.last_name) + ':' + str(message.from_user.username) + ':' + ':Message is empty.\n')
+#        with open(logfile, 'a', encoding='utf-8') as f:
+#            f.write(str(datetime.datetime.today().strftime("%H:%M:%S")) + ':' + str(message.from_user.id) + ':' + str(message.from_user.first_name) + '_' +
+#                    str(message.from_user.last_name) + ':' + str(message.from_user.username) + ':' + ':Message is empty.\n')
     except Exception as e:
         bot.send_message(message.from_user.id,
-                         "Something went through the ass, but our brave engineers are already working on a solution... \n or it will just get lost in the logs.")
-        with open(logfile, 'a', encoding='utf-8') as f:
-            f.write(str(datetime.datetime.today().strftime("%H:%M:%S")) + ':' + str(message.from_user.id) + ':' + str(message.from_user.first_name) + '_' +
-                    str(message.from_user.last_name) + ':' + str(message.from_user.username) + ':' + ':' + str(e) + '\n')
+                         "Something went through the ass")
     finally:
         os.remove(fname+'.wav')
         os.remove(fname+'.oga')
