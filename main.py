@@ -27,9 +27,9 @@ def get_audio_messages(message):
     # Accepts the voice from the user
     try:
         file_info = bot.get_file(message.voice.file_id)
-        # Path to file (for example: voice/file_2.oga)
+        # Path = filepath (for example: voice/file_2.oga)
         path = file_info.file_path
-        # Path to filename (for example: file_2.oga)
+        # Filename to Path (for example: file_2.oga)
         fname = os.path.basename(path)
         # We receive and save the sent voice message
         doc = requests.get(
